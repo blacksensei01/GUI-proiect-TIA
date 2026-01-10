@@ -4,7 +4,7 @@ import streamlit as st
 import tensorflow as tf
 from PIL import Image
 
-st.set_page_config(page_title="Dog Breed Classifier", page_icon="🐶", layout="centered")
+st.set_page_config(page_title="Dog Breed ClassifierV2", page_icon="🐶", layout="centered")
 st.title("🐶 Stanford Dogs – Dog Breed Classifier")
 st.write("Încarcă o imagine cu un câine și îți arăt top rasele prezise de model.")
 
@@ -83,3 +83,4 @@ if uploaded is not None:
         st.warning("⚠️ Modelul nu este foarte sigur (probabilitate mică). Încearcă o imagine mai clară, cu câinele mai mare în cadru.")
 else:
     st.info("Încarcă o imagine ca să vezi predicțiile.")
+
