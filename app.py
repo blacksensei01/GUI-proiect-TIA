@@ -25,15 +25,15 @@ def pretty_label(lbl: str) -> str:
 
 # IMPORTANT: NU mai facem preprocess_input aici!
 # Modelul tău îl are deja în interior (TrueDivide/Subtract).
-def preprocess_pil(img: Image.Image) -> np.ndarray:
-    img = img.convert("RGB").resize(IMG_SIZE)
-    arr = tf.keras.utils.img_to_array(img)  # 0..255
-    arr = np.expand_dims(arr, axis=0)
-    return arr
+#def preprocess_pil(img: Image.Image) -> np.ndarray:
+   # img = img.convert("RGB").resize(IMG_SIZE)
+    #arr = tf.keras.utils.img_to_array(img)  # 0..255
+   # arr = np.expand_dims(arr, axis=0)
+    #return arr
 
 def predict_topk(model, class_names, img: Image.Image, k=5):
-    x = preprocess_pil(img)
-    probs = model.predict(x, verbose=0)[0]
+   # x = preprocess_pil(img)
+    probs = model.predict(img, verbose=0)[0]
     idx = np.argsort(probs)[-k:][::-1]
     return [(class_names[i], float(probs[i])) for i in idx]
 
@@ -71,3 +71,4 @@ if uploaded is not None:
     st.caption(f"Top-1: {pretty_label(best_label)} ({best_p*100:.2f}%)")
 else:
     st.info("Încarcă o imagine ca să vezi predicțiile.")
+
